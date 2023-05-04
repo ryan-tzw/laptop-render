@@ -5,7 +5,6 @@ import {
     PresentationControls,
     ContactShadows,
     Html,
-    Text,
     Text3D,
     useTexture,
 } from '@react-three/drei'
@@ -50,23 +49,11 @@ export default function Experience() {
                         />
                     </primitive>
 
-                    {/* <Text
-                        font="./yeseva-one-v20-latin-regular.woff"
-                        fontSize={0.5}
-                        position={[2, 0.75, 0.75]}
-                        rotation-y={-1.25}
-                        maxWidth={2}
-                        textAlign="center"
-                    >
-                        Simple Portfolio
-                    </Text> */}
-
                     <Text3D
                         font="./yeseva-one-regular.json"
                         size={0.5}
                         position={[2, 0.75, -0.25]}
                         rotation-y={-1.25}
-                        textAlign="center"
                     >
                         Simple
                         <meshMatcapMaterial matcap={matcap} />
@@ -76,7 +63,6 @@ export default function Experience() {
                         size={0.5}
                         position={[2, 0, -0.75]}
                         rotation-y={-1.25}
-                        textAlign="center"
                     >
                         Portfolio
                         <meshMatcapMaterial matcap={matcap} />
