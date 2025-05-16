@@ -8,23 +8,26 @@ import {
     Text3D,
     useTexture,
 } from '@react-three/drei'
+import { useControls } from 'leva'
 
 export default function Experience() {
     const computer = useGLTF('./macbook.glb')
     const matcap = useTexture('./E1E1D4_777C7B_9FA19A_898F8D-512px.png')
+    const colors = useControls({
+        bgColor: '#39323e',
+    })
 
     return (
         <>
             <Environment files="./potsdamer_platz_1k.hdr" />
-            <color args={['#333']} attach="background" />
+            <color args={[colors.bgColor]} attach="background" />
 
             <PresentationControls
                 global
-                rotation={[0.13, 0.1, 0]}
+                rotation={[0.15, -0.1, 0.05]}
                 polar={[-0.4, 0.2]}
                 azimuth={[-1, 0.75]}
-                config={{ mass: 1.5, tension: 400 }}
-                snap={{ mass: 2, tension: 400 }}
+                snap={{ mass: 2, tension: 250 }}
             >
                 <Float rotationIntensity={0.4}>
                     <primitive object={computer.scene} position-y={-1.2}>
@@ -52,19 +55,19 @@ export default function Experience() {
                     <Text3D
                         font="./yeseva-one-regular.json"
                         size={0.5}
-                        position={[2, 0.75, -0.25]}
-                        rotation-y={-1.25}
+                        position={[2, 0.7, -1.5]}
+                        rotation-y={-1}
                     >
-                        Simple
+                        Dev &
                         <meshMatcapMaterial matcap={matcap} />
                     </Text3D>
                     <Text3D
                         font="./yeseva-one-regular.json"
                         size={0.5}
-                        position={[2, 0, -0.75]}
-                        rotation-y={-1.25}
+                        position={[2, 0, -1.2]}
+                        rotation-y={-1}
                     >
-                        Portfolio
+                        Design
                         <meshMatcapMaterial matcap={matcap} />
                     </Text3D>
                 </Float>
